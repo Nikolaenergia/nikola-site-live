@@ -1,0 +1,12 @@
+{
+  "name": "nikola-site-live",
+  "version": "1.0.0",
+  "description": "Site oficial Nikola Energia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
