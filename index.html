@@ -89,7 +89,7 @@ input[type=range]{width:100%;accent-color:var(--azul);margin-bottom:4px}
 .sim-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .sim-pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
 .sim-pay-box{border:2px solid #e2e8f5;border-radius:14px;padding:16px;text-align:center}
-.sim-pay-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#fff;background:var(--grad);border-radius:99px;padding:4px 12px}
+.sim-pay-box .sim-pay-tag{display:inline-block;width:auto;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#fff;background:var(--grad);border-radius:99px;padding:4px 12px}
 .sim-pay-box b{display:block;font-size:22px;font-weight:800;color:var(--roxo);margin:6px 0 4px}
 .sim-pay-box span{font-size:11.5px;color:var(--cinza);display:block}
 .sim-pay-box i{font-style:normal;font-weight:800;color:var(--navy)}
@@ -304,7 +304,7 @@ footer a:hover{color:#fff}
   <div class="in" id="simulador">
     <span class="badge">Atendemos todo o estado de São Paulo</span>
     <h1 class="hero-title">Simule quanto você economiza com energia solar</h1>
-    <p class="sub">Digite o valor da sua conta de luz e veja sua economia na hora. Grátis e sem cadastro.</p>
+    <p class="sub">Arraste a barra até o valor da sua conta de luz e veja sua economia na hora. Grátis e sem cadastro.</p>
     <div class="sim-box">
       <div class="sim-top"><h3>Calculadora de economia solar</h3><p>Estimativa rápida baseada em projetos residenciais típicos.</p></div>
       <div class="sim-body">
@@ -320,7 +320,7 @@ footer a:hover{color:#fff}
         <div class="sim-pay">
           <div class="sim-pay-box">
             <span class="sim-pay-tag">À vista ou cartão</span>
-            <b>2,3 a 2,8 anos</b>
+            <b id="r-pb">2,8 anos</b>
             <span>pro sistema se pagar sozinho. Depois disso, a economia é lucro todo mês.</span>
           </div>
           <div class="sim-pay-box">
@@ -476,6 +476,16 @@ footer a:hover{color:#fff}
   var conta=document.getElementById("conta"), slider=document.getElementById("slider");
   function rs(v){ return "R$ "+Math.round(v).toLocaleString("pt-BR"); }
   var PCT_ECONOMIA=0.90, REAJUSTE=0.12, DEGRADACAO=0.005, ANOS=25;
+  // payback a vista: conta menor tem custo por kWp maior, entao demora mais a se pagar
+  var PAYBACK=[[50,400,3.6,2.8],[400,1500,2.8,2.3],[1500,12000,2.3,1.9]];
+  function paybackAnos(v){
+    for(var i=0;i<PAYBACK.length;i++){ var f=PAYBACK[i];
+      if(v<=f[1]||i===PAYBACK.length-1){
+        var t=Math.max(0,Math.min(1,(v-f[0])/(f[1]-f[0])));
+        return f[2]+t*(f[3]-f[2]);
+      }
+    }
+  }
   // regua nao linear: a faixa de R$ 350 a R$ 1.500 (onde esta a maioria dos clientes) ocupa 70% da barra
   var FAIXAS=[[0,50,50,350],[50,750,350,1500],[750,1000,1500,12000]];
   function posParaValor(p){
@@ -505,6 +515,7 @@ footer a:hover{color:#fff}
     document.getElementById("r-ano").textContent=rs(ano);
     document.getElementById("r-25").textContent=rs(acumulado(ano));
     document.getElementById("r-parc").textContent=rs(mes);
+    document.getElementById("r-pb").textContent=paybackAnos(v).toFixed(1).replace(".",",")+" anos";
   }
   conta.addEventListener("input",function(){ slider.value=valorParaPos(Math.min(12000,Math.max(50,parseFloat(conta.value)||50))); calc(); });
   slider.addEventListener("input",function(){ conta.value=posParaValor(parseFloat(slider.value)); calc(); });
