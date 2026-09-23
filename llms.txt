@@ -1,6 +1,6 @@
 # Nikola Energia
 
-> A Nikola Energia é um hub de energia solar no estado de São Paulo. Projeta, instala e homologa energia solar fotovoltaica para residências, comércios e indústrias, com economia de até 95% na conta de luz. Trabalha com energia solar on-grid, baterias de backup (Nikola Backup, tecnologia LiFePO4 e sistemas BESS) e carregadores para carro elétrico (Nikola Charge).
+> A Nikola Energia é um hub de energia solar no estado de São Paulo. Projeta, instala e homologa energia solar fotovoltaica para residências, comércios e indústrias, com economia de até 90% na conta de luz. Trabalha com energia solar on-grid, baterias de backup (Nikola Backup, tecnologia LiFePO4 e sistemas BESS) e carregadores para carro elétrico (Nikola Charge).
 
 ## Sobre a empresa
 - Nome: Nikola Energia (Nikola Energia LTDA)
@@ -23,7 +23,7 @@
 - [Blog: Bateria x gerador, qual vale mais a pena](https://nikolaenergia.com.br/blog-bateria-gerador.html)
 
 ## Perguntas frequentes
-- Quanto dá para economizar com energia solar? Até 95% na conta de luz, com retorno do investimento (payback) geralmente entre 3 e 5 anos.
+- Quanto dá para economizar com energia solar? Até 90% na conta de luz, com retorno do investimento (payback) geralmente entre 3 e 5 anos.
 - O que é a Lei 14.300? É o marco legal da geração própria de energia no Brasil. A cobrança do Fio B sobe ano a ano, então instalar antes garante um retorno melhor.
 - A Nikola atende a minha região? Sim, atende toda a Grande São Paulo e cidades do interior do estado de São Paulo.
 - Como pedir um orçamento? Basta enviar a foto da conta de luz no WhatsApp (11) 94941-0618 para receber um cálculo gratuito e sem compromisso.
