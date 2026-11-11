@@ -26,6 +26,7 @@ const BLOQUEADOS = new Set(['/server.js', '/package.json', '/package-lock.json',
 const REDIRECIONA = {
   '/index.html': '/',
   '/blog/lei-14300-fio-b.html': '/blog-lei14300.html',
+  '/privacidade': '/privacidade.html',
   '/blog/energia-solar-vale-a-pena-2026.html': '/blog-solar2026.html',
   '/blog/bateria-x-gerador.html': '/blog-bateria-gerador.html'
 };
